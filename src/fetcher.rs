@@ -167,9 +167,9 @@ fn fetch_feed_updates(
                 .map(|s| s.as_str())
                 .unwrap_or_else(|| &rss_link);
             format!(
-                "<a href=\"{}\">{}</a>",
-                EscapeUrl(link),
-                Escape(&truncate_message(title, TELEGRAM_MAX_MSG_LEN - 500))
+                "{}\n{}",
+                Escape(&truncate_message(title, TELEGRAM_MAX_MSG_LEN - 500)),
+                EscapeUrl(link)
             )
         },
     );
